@@ -1,0 +1,28 @@
+{
+    "purchases": [
+        {
+            "amount": 8,
+            "id": 1,
+            "name": "Banana Bunch",
+            "price": 2.1
+        },
+        {
+            "amount": 2,
+            "id": 2,
+            "name": "Jackfruit",
+            "price": 5.5
+        },
+        {
+            "amount": 2,
+            "id": 7,
+            "name": "Black Diamond Apple",
+            "price": 30.87
+        },
+        {
+            "amount": 2,
+            "id": 4,
+            "name": "IAC 'Honey Bud' Pineapple",
+            "price": 20.77
+        }
+    ]
+}
