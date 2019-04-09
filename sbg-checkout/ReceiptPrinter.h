@@ -19,7 +19,7 @@ public:
 	void AddDiscountHeader();
 
 	// Add items to the receipt
-	void AddItem(const ItemData& item, const int& amount);
+	void AddItem(const ItemData& item);
 	void AddDiscount(const ItemData& item, const int& amount);
 	void AddTotal(const double& amount);
 

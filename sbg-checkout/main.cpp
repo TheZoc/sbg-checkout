@@ -12,6 +12,10 @@ void WriteSampleJSON();
 
 int main()
 {
+	Cart cart;
+	ItemData item;
+	ReceiptPrinter rp;
+
 	using json = nlohmann::json;
 
 	// Write our testing data to a file
@@ -20,26 +24,18 @@ int main()
 	// TODO: Make this a command line argument
 	std::ifstream jsonfile("fruits.json");
 	json j;
+
 	jsonfile >> j;
-
-	// Test boilerplate code
-	ReceiptPrinter rp;
-	rp.AddReceiptHeader();
-	rp.AddItemsHeader();
-
-	ItemData item;
 	for (json::iterator it = j["purchases"].begin(); it != j["purchases"].end(); ++it)
 	{
 		item.itemName	= (*it)["name"];
 		item.price		= (*it)["price"];
+		item.amount		= (*it)["amount"];
 
-		rp.AddItem(item, (*it)["amount"]);
+		cart.AddItem((*it)["id"], item);
 	}
 
-	rp.AddDiscountHeader();
-	rp.AddDiscount(item, 1);
-	rp.AddTotal(12345.87);
-
+	cart.FinishPurchase(rp);
 	rp.PrintToConsole();
 }
 

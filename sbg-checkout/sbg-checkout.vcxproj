@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cart.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReceiptPrinter.cpp" />
   </ItemGroup>

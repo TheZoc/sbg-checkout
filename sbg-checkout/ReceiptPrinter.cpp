@@ -51,7 +51,7 @@ void ReceiptPrinter::AddDiscountHeader()
 	m_ReceiptData.copyfmt(prevFormatting);
 }
 
-void ReceiptPrinter::AddItem(const ItemData& item, const int& amount)
+void ReceiptPrinter::AddItem(const ItemData& item)
 {
 	std::ios prevFormatting(nullptr);
 	prevFormatting.copyfmt(m_ReceiptData);
@@ -62,8 +62,8 @@ void ReceiptPrinter::AddItem(const ItemData& item, const int& amount)
 	// Item data
 	m_ReceiptData << std::setw(30) << std::left << item.itemName;
 	m_ReceiptData << std::setw(20) << item.price;
-	m_ReceiptData << std::setw(12) << amount;
-	m_ReceiptData << std::setw(15) << std::right << amount * item.price;
+	m_ReceiptData << std::setw(12) << item.amount;
+	m_ReceiptData << std::setw(15) << std::right << item.amount * item.price;
 	m_ReceiptData << "\n";
 
 	m_ReceiptData.copyfmt(prevFormatting);
