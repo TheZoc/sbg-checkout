@@ -84,11 +84,15 @@ void Cart::FinishPurchase(ReceiptPrinter& rp)
 					}
 					else
 					{
-						// Discount as much as we can from this item and then keep going.
-						int discAmount	= (dIt->second + freeItems) - revIterator->second.amount;
-						dIt->second		+= discAmount;
-						extraItems		-= discAmount * 3;
-						continue;
+						// Check if we still have items of this type to discount
+						if (revIterator->second.amount == dIt->second)
+							continue;
+
+						// Check how many items left we have left, apply the discount and keep going
+						int availableItems	= revIterator->second.amount - dIt->second;
+						freeItems			-= availableItems;
+						dIt->second			+= availableItems;
+						extraItems			-= availableItems * 3;
 					}
 				}
 			}

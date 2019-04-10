@@ -2,7 +2,9 @@
 #define _RECEIPTPRINTER_H_
 
 #include <sstream>
+#include <string>
 #include "Cart.h"
+
 
 class ReceiptPrinter
 {
@@ -18,13 +20,13 @@ public:
 	void AddItemsHeader();
 	void AddDiscountHeader();
 
-	// Add items to the receipt
+	// Add data to the receipt
 	void AddItem(const ItemData& item);
 	void AddDiscount(const ItemData& item, const int& amount);
 	void AddTotal(const double& amount);
 
-	// Dump data to console
-	void PrintToConsole();
+	// Print to console
+	void Print();
 
 	// Empty the buffer
 	void ClearAllData() { m_ReceiptData.clear(); }

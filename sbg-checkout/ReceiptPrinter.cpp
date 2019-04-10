@@ -105,7 +105,7 @@ void ReceiptPrinter::AddTotal(const double& amount)
 	m_ReceiptData.copyfmt(prevFormatting);
 }
 
-void ReceiptPrinter::PrintToConsole()
+void ReceiptPrinter::Print()
 {
 	std::cout << m_ReceiptData.str();
 }
