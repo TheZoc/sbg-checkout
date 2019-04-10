@@ -26,7 +26,7 @@ public:
 	void AddTotal(const double& amount);
 
 	// Print to console
-	void Print();
+	void Print() const;
 
 	// Empty the buffer
 	void ClearAllData() { m_ReceiptData.clear(); }
