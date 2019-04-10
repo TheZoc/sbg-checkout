@@ -32,7 +32,7 @@ void Cart::FinishPurchase(ReceiptPrinter& rp)
 
 	std::set<std::pair<ItemID, ItemData>, priceComparator> orderedShoppingList(m_itemInventory.cbegin(), m_itemInventory.cend(), priceCmp);
 	
-	// Keep track of what deals that were applied
+	// Keep track of the deals that were applied
 	std::unordered_map<ItemID, int> discountedItems;
 	
 	// Go from the most expensive to the cheapest item, applying deals

@@ -2,6 +2,7 @@
 #define _CART_H_
 
 #include <unordered_map>
+#include <string>
 
 class ReceiptPrinter;
 
