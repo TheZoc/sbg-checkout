@@ -41,11 +41,17 @@ void Cart::FinishPurchase(ReceiptPrinter& rp)
 	{
 		// Rule #1 - For each 3 identical items, 1 is free!
 		{
-			int freeItems = it->second.amount / 3;
+			int discountedAmount = 0;
+
+			// Check if this item is already being discounted and take it into account!
+			auto dIt = discountedItems.find(it->first);
+			if (dIt != discountedItems.end())
+				discountedAmount = dIt->second;
+
+			int freeItems = (it->second.amount - discountedAmount) / 3;
 			if (freeItems > 0)
 			{
-				// Since we're checking for this specific item for the first time, we can just add it ;)
-				discountedItems[it->first] = freeItems;
+				discountedItems[it->first] = freeItems + discountedAmount;
 			}
 		}
 		
